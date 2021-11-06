@@ -30,10 +30,23 @@ Assert.assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
 
 ## Usage
 1. Clone / Pull this repository
-2. Add the test folder to your src-folder of your artemis java project
+2. Add the test folder to your src-folder of your artemis java project or use the syslink instruction below.
 3. Make sure your IDE sees your added files
-4. **Do not add them to your artemis git repository**
-5. Run the tests and check your mistakes
+4. Include JUnit to your Project by pressing ```ALT + ENTER``` on one of the red underlined @Test Annotations in the test file.
+5. **Do not add them to your artemis git repository**
+6. Run the tests and check your mistakes
+
+### How to use syslinks
+#### Windows
+This has to be executed in the command line, run as administrator:
+ ```
+$ mklink /d \path\to\src\tests \path\to\repository\tests
+ ```
+#### Linux/MacOS 
+```
+$ ln -s /path/to/repository/tests /path/to/src/
+```
+Shoutout to Contributors of the [TUM_GAD_Tests_SS21-Repository](https://github.com/N0W0RK/TUM_GAD_Tests_SS21) for this great tip!
 
 ---
 
