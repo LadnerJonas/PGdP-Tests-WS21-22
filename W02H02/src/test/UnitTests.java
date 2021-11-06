@@ -9,6 +9,7 @@ import pgdp.saleuine.Order;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+// If some tests with console output fail change \r\n to \n and see if that helps
 public class UnitTests {
     // Variables used to check console output
     private final PrintStream standardOut = System.out;
