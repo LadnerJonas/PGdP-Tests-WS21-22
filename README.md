@@ -39,7 +39,7 @@ Assert.assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
 
 ## How to contribute
 1. Fork Repository
-2. Add/edit tests
+2. Add / edit tests
 3. **Ensure no solution or homework-code is getting revealed**
 4. Commit and push to your fork repository
 5. Open a Pull Request to this repository
