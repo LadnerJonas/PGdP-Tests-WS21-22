@@ -46,7 +46,7 @@ $ mklink /d \path\to\src\tests \path\to\repository\tests
 ```
 $ ln -s /path/to/repository/tests /path/to/src/
 ```
-Shoutout to Contributors of the [TUM_GAD_Tests_SS21-Repository](https://github.com/N0W0RK/TUM_GAD_Tests_SS21) for this great tip!
+Shoutout to the Contributors of the [TUM_GAD_Tests_SS21-Repository](https://github.com/N0W0RK/TUM_GAD_Tests_SS21) for this great tip!
 
 ---
 
