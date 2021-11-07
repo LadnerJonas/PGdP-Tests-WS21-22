@@ -15,8 +15,6 @@ import java.io.PrintStream;
 public class UnitTests {
     // Variables used to check console output
     private final PrintStream standardOut = System.out;
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
 
     @Test
     public void OrderToStringTest() {
@@ -92,6 +90,7 @@ public class UnitTests {
     @Test
     public void KaufuinPayTest() {
         // Prepare
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
         // Arrange
@@ -115,6 +114,7 @@ public class UnitTests {
     @Test
     public void MarketServeCustomerTest() {
         // Prepare
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
         // Arrange
@@ -150,6 +150,8 @@ public class UnitTests {
         m1.serveCustomer(k1);
         // Prepare
         System.setOut(standardOut);
+
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
         //
         m1.endDay();
@@ -182,6 +184,8 @@ public class UnitTests {
         m1.serveCustomer(k1);
         // Prepare
         System.setOut(standardOut);
+
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
         //
         m1.endDay();
