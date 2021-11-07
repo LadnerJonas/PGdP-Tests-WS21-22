@@ -29,12 +29,28 @@ Assert.assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
 ---
 
 ## Usage
-1. Clone / Pull this repository
-2. Add the test folder to your src-folder of your artemis java project or use the syslink instruction below.
-3. Make sure your IDE sees your added files
-4. Include JUnit to your Project by pressing ```ALT + ENTER``` on one of the red underlined @Test Annotations in the test file.
-5. **Do not add them to your artemis git repository**
-6. Run the tests and check your mistakes
+1. Clone this repository
+```
+git clone https://github.com/LadnerJonas/PGdP-Tests-WS21-22.git
+```
+2. Check for updates
+```
+git pull
+```
+3. Add the test folder to your ```src```-folder of your artemis java project
+   
+   **Or** use the syslink instruction below.
+5. Make sure your IDE (e.g. IntelIJ or Eclipse) sees your added files
+6. Include JUnit to your Project by pressing the red lightbulb (or ```ALT + ENTER``` in IntelIJ) on one of the red underlined @Test Annotations in the test file.
+ 
+ ![image](https://user-images.githubusercontent.com/92096842/140649461-ea039c79-37bd-4188-b91b-290491e88261.png)
+
+8. **Do not add them to your artemis git repository**
+9. Run the tests and check your mistakes
+
+![image](https://user-images.githubusercontent.com/92096842/140649844-6da6a9bb-19c3-43e6-97c7-2d53f9bc2b2b.png)
+
+![image](https://user-images.githubusercontent.com/92096842/140649863-b5e9cd9d-548e-422c-8d11-71f4140f8a0d.png)
 
 ### How to use syslinks
 #### Windows
