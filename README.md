@@ -52,6 +52,13 @@ git pull
 
 ![image](https://user-images.githubusercontent.com/92096842/140649863-b5e9cd9d-548e-422c-8d11-71f4140f8a0d.png)
 
+#### Important note
+As this is a student-driven project please keep in mind that mistakes can happen. If you think a test is wrong, please feel free to open an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) (it is easy!). To help fixing bugs, please add following info to your Issue:
+- Operating system
+- IDE (IntelIJ, Eclipse, ...)
+- Where is the mistake / error
+- Citation of the homework instruction
+
 ### How to use syslinks (Advanced Users only!)
 #### Windows
 This has to be executed in the command line, run as administrator:
