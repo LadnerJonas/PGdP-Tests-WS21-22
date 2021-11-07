@@ -52,7 +52,7 @@ git pull
 
 ![image](https://user-images.githubusercontent.com/92096842/140649863-b5e9cd9d-548e-422c-8d11-71f4140f8a0d.png)
 
-### How to use syslinks
+### How to use syslinks (Advanced Users only!)
 #### Windows
 This has to be executed in the command line, run as administrator:
  ```
@@ -67,16 +67,24 @@ Shoutout to the Contributors of the [TUM_GAD_Tests_SS21-Repository](https://gith
 ---
 
 ## How to contribute
-1. Fork Repository
+1. Fork Repository ([Github Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository))
 2. Add / edit tests
 3. **Ensure no solution or homework-code is getting revealed**
 4. Commit and push to your fork repository
-5. Open a Pull Request to this repository
+5. Open a Pull Request to this repository ([Github Documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests))
 6. Wait until the changes are merged
 
 ---
+## Helpful links
+Write Tests using [JUnit 5](https://junit.org/junit5/docs/current/user-guide/#writing-tests)
+
+How to use [Git](https://www.atlassian.com/de/git/tutorials/learn-git-with-bitbucket-cloud)
+
+How to use [Github](https://guides.github.com/activities/hello-world/)
+
+---
 ## Contact
-Feel free to contact me via email: 
+Feel free to contact me via email, but consider using [google](https://google.com) beforehand: 
 
 [jonas.ladner@tum.de](mailto:jonas.ladner@tum.de)
 
