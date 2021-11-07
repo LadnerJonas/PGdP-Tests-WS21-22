@@ -9,7 +9,9 @@ import pgdp.saleuine.Order;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-// If some tests with console output fail chance \r\n to \n and see if that helps
+// 7-8 / 10 tests successful are okay, just check the homework instruction on the failing tests again. 
+// Due to the different line breaks on different operating systems some tests will fail on some systems.
+// Just check if *your method* creates the right output. 
 public class UnitTests {
     // Variables used to check console output
     private final PrintStream standardOut = System.out;
@@ -106,6 +108,10 @@ public class UnitTests {
         System.setOut(standardOut);
     }
 
+        
+    // This test can fail on some systems, just check the homework instruction again. 
+    // Due to the different line breaks on different operating systems some tests will fail on some systems.
+    // Just check if *your method* creates the right output. 
     @Test
     public void MarketServeCustomerTest() {
         // Prepare
@@ -129,6 +135,10 @@ public class UnitTests {
         System.setOut(standardOut);
     }
 
+        
+    // This test can fail on some systems, just check the homework instruction again. 
+    // Due to the different line breaks on different operating systems some tests will fail on some systems.
+    // Just check if *your method* creates the right output. 
     @Test
     public void MarketEndDayOutputTest() {
         // Arrange
@@ -156,6 +166,10 @@ public class UnitTests {
         System.setOut(standardOut);
     }
 
+        
+    // This test can fail on some systems, just check the homework instruction again. 
+    // Due to the different line breaks on different operating systems some tests will fail on some systems.
+    // Just check if *your method* creates the right output. 
     @Test
     public void MarketEndDayPropertiesTest() {
         // Arrange
