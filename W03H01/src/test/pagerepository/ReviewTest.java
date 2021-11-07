@@ -31,7 +31,7 @@ public class ReviewTest {
                 .*Ganz in Ordnung.*
                 .*Gut.*
                 (?=.*10)(?=.*12)(?=.*2011).*
-                (?=.*\\bGabriella\\b)(?=.*\\bMusterfrau\\b).*$""").matcher(review().toPrintText()).matches());
+                (?=.*\\bGabriella\\b)(?=.*\\bMusterfrau\\b).*$""".replace("\r\n", "\n")).matcher(review().toPrintText().replace("\r\n", "\n")).matches());
     }
 
     @Test

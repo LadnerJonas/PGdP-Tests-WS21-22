@@ -28,7 +28,7 @@ public class AuthorTest {
                 ^(?=.*\\bMax\\b)(?=.*\\bMustermann\\b).*
                 (?=\\b.*12\\b)(?=\\b.*10\\b)(?=\\b.*1990\\b).*
                 .*Pinguinstraße 1.*
-                .*max\\.mustermann@example\\.de.*$""").matcher(AUTHOR.toPrintText()).matches());
+                .*max\\.mustermann@example\\.de.*$""".replace("\r\n", "\n")).matcher(AUTHOR.toPrintText().replace("\r\n", "\n")).matches());
     }
 
     @Test

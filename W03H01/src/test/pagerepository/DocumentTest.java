@@ -31,7 +31,7 @@ public class DocumentTest {
                 ^.*Musterdokument.*
                 (?=.*\\bMax\\b)(?=.*\\bMustermann\\b).*
                 .*Mustertext.*
-                (?=\\b.*12\\b)(?=\\b.*11\\b)(?=\\b.*1990\\b).*$""").matcher(document().toPrintText()).matches());
+                (?=\\b.*12\\b)(?=\\b.*11\\b)(?=\\b.*1990\\b).*$""".replace("\r\n", "\n")).matcher(document().toPrintText().replace("\r\n", "\n")).matches());
     }
 
     @Test
