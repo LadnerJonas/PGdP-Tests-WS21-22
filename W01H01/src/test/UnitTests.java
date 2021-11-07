@@ -14,7 +14,7 @@ public class UnitTests {
     public void checkMain() {
         System.setOut(new PrintStream(outputStreamCaptor));
         Hello.main(new String[]{});
-        Assert.assertEquals("Hello World\r\nSüßer Pingu!", outputStreamCaptor.toString()
+        Assert.assertEquals("Hello World" + System.lineSeparator() + "Süßer Pingu!", outputStreamCaptor.toString()
                 .trim());
         System.setOut(standardOut);
     }
