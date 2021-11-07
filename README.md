@@ -7,6 +7,8 @@
 
 The so-called **__Übungsleitung__** will have an eye on this repository. But as long as the tests do not reveal the solution of the homework, this repository will be tolerated. To ensure the solution is not getting revealed, the tests should be Input/Output-Tests.
 
+The **__Übungsleitung__** is not responsible for this repository. Therefore no support is given by the **__Übungsleitung__**. Just use the [Issue](https://github.com/LadnerJonas/PGdP-Tests-WS21-22#important-note) feature here.
+
 ### Examples:
 
 correct:
