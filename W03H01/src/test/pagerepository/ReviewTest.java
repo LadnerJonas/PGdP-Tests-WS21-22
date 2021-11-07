@@ -15,12 +15,12 @@ public class ReviewTest {
     @Test
     void testConstructor() {
         int initial = Review.numberOfCreatedReviews();
-        var review = review();
-        assertEquals(initial + 1, Review.numberOfCreatedReviews());
-        assertEquals(initial, review.getPostId());
         var review1 = review();
+        assertEquals(initial + 1, Review.numberOfCreatedReviews());
+        assertEquals(initial, review1.getPostId());
+        var review2 = review();
         assertEquals(initial + 2, Review.numberOfCreatedReviews());
-        assertEquals(initial + 1, review1.getPostId());
+        assertEquals(initial + 1, review2.getPostId());
     }
 
     @Test
@@ -36,10 +36,10 @@ public class ReviewTest {
 
     @Test
     void testEquals() {
-        var review = review();
+        var review1 = review();
         var review2 = review();
-        assertTrue(review.equals(review));
-        assertFalse(review.equals(review2));
+        assertTrue(review1.equals(review1));
+        assertFalse(review1.equals(review2));
     }
 
     @Test
