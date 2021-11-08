@@ -1,7 +1,8 @@
 package test;
 
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import pgdp.hellopingu.Hello;
 
 import java.io.ByteArrayOutputStream;
@@ -14,7 +15,7 @@ public class UnitTests {
     public void checkMain() {
         System.setOut(new PrintStream(outputStreamCaptor));
         Hello.main(new String[]{});
-        Assert.assertEquals("Hello World" + System.lineSeparator() + "Süßer Pingu!", outputStreamCaptor.toString()
+        Assertions.assertEquals("Hello World" + System.lineSeparator() + "Süßer Pingu!", outputStreamCaptor.toString()
                 .trim());
         System.setOut(standardOut);
     }
