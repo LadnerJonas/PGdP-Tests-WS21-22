@@ -1,11 +1,14 @@
 package test;
 
-import org.junit.Test;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import pgdp.rectangles.Rectangle;
 import pgdp.rectangles.Vector2D;
+
 public class UnitTests {
+
     @Test
     public void TestAreaCalculation() {
         Vector2D v1 = new Vector2D(0, 2);
@@ -13,7 +16,7 @@ public class UnitTests {
 
         Rectangle r1 = new Rectangle(v1, v2);
 
-        Assert.assertEquals(6.0, r1.calculateArea(), 0.000001);
+        Assertions.assertEquals(6.0, r1.calculateArea(), 0.000001);
     }
 
     @Test
@@ -27,6 +30,6 @@ public class UnitTests {
 
         r1.shiftBy(shiftVector1);
 
-        Assert.assertEquals("Rectangle spanned by points [-2.0, 0.5] and [1.0, -1.5].", r1.toString());
+        Assertions.assertEquals("Rectangle spanned by points [-2.0, 0.5] and [1.0, -1.5].", r1.toString());
     }
 }
