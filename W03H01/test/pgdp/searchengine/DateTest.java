@@ -1,4 +1,4 @@
-package pgdp.test.util;
+package pgdp.searchengine;
 
 import org.junit.jupiter.api.Test;
 import pgdp.searchengine.util.Date;
