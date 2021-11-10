@@ -7,9 +7,14 @@ import pgdp.searchengine.util.Date;
 
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DocumentTest {
+
+    private static final Document document() {
+        var author = new Author("Max", "Mustermann", "Pinguinstraße 1", "test@example.de", new Date(1, 1, 1990));
+        return new Document("Musterdokument", "Mustertext", "Lorem Ipsum dolor sit amet, consectetur adipiscing elit", new Date(12, 11, 1990), author);
+    }
 
     @Test
     void testConstructor() {
@@ -49,9 +54,5 @@ public class DocumentTest {
         assertTrue(pattern.matcher(document().toString()).matches());
     }
 
-    private Document document() {
-        var author = new Author("Max", "Mustermann", "Pinguinstraße 1", "test@example.de", new Date(1, 1, 1990));
-        return new Document("Musterdokument", "Mustertext", "Lorem Ipsum dolor sit amet, consectetur adipiscing elit", new Date(12, 11, 1990), author);
-    }
 
 }
