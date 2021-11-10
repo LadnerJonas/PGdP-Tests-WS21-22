@@ -8,10 +8,18 @@ import pgdp.searchengine.util.Date;
 
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReviewTest {
 
+    private Review review() {
+        var author = new Author("Max", "Mustermann", "Pinguinstraße 1", "test@example.de", new Date(1, 1, 1990));
+        var reviewer = new Author("Gabriella", "Musterfrau", "Pinguinstraße 2", "test2@example.tld", new Date(10, 11, 1991));
+        var document = new Document("Musterdokument", "Mustertext", "Lorem Ipsum dolor sit amet, consectetur adipiscing elit", new Date(12, 11, 1990), author);
+
+        return new Review("Ganz in Ordnung", "Gut", new Date(10, 12, 2011), reviewer, document, 10);
+    }
+    
     @Test
     void testConstructor() {
         int initial = Review.numberOfCreatedReviews();
@@ -45,16 +53,8 @@ public class ReviewTest {
     @Test
     void testToString() {
         var pattern = Pattern.compile("^(?=.*\\bGanz in Ordnung\\b)(?=.*\\b10\\b)(?=.*\\b10\\b)" +
-                                      "(?=.*\\bMusterdokument\\b)(?=.*12)(?=.*11)(?=.*1990)(?=.*Max)(?=.*Mustermann).*$");
+                "(?=.*\\bMusterdokument\\b)(?=.*12)(?=.*11)(?=.*1990)(?=.*Max)(?=.*Mustermann).*$");
         assertTrue(pattern.matcher(review().toString()).matches());
-    }
-
-    private Review review() {
-        var author = new Author("Max", "Mustermann", "Pinguinstraße 1", "test@example.de", new Date(1, 1, 1990));
-        var reviewer = new Author("Gabriella", "Musterfrau", "Pinguinstraße 2", "test2@example.tld", new Date(10, 11, 1991));
-        var document = new Document("Musterdokument", "Mustertext", "Lorem Ipsum dolor sit amet, consectetur adipiscing elit", new Date(12, 11, 1990), author);
-
-        return new Review("Ganz in Ordnung", "Gut", new Date(10, 12, 2011), reviewer, document, 10);
     }
 
 }
