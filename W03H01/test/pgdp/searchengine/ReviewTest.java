@@ -40,6 +40,9 @@ public class ReviewTest {
         var review2 = review();
         assertTrue(review1.equals(review1));
         assertFalse(review1.equals(review2));
+
+        assertFalse(review1.equals(null));
+        assertFalse(review2.equals(null));
     }
 
     @Test

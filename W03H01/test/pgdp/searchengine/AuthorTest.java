@@ -42,7 +42,9 @@ public class AuthorTest {
                 "max.mustermann@example.de", new Date(12, 10, 1990))));
         assertFalse(AUTHOR.equals(new Author("Max", "Musterfrau", "Pinguinstraße 1",
                 "max.mustermann@example.de", new Date(12, 10, 1990))));
-        
+
+        assertFalse(AUTHOR.equals(null));
+
         // siehe https://github.com/LadnerJonas/PGdP-Tests-WS21-22/issues/9
         /*assertFalse(AUTHOR.equals(new Author("Max", "Mustermann", "Pinguinstraße 1",
                 "max.mustermann@example.de", null)));*/

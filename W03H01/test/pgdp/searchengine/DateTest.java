@@ -18,6 +18,8 @@ public class DateTest {
 
         var date3 = new Date(1, 1, 1989);
         assertFalse(date1.equals(date3));
+
+        assertFalse(date1.equals(null));
     }
 
     @Test

@@ -41,6 +41,9 @@ public class DocumentTest {
 
         var document2 = document();
         assertFalse(document2.equals(document1));
+
+        assertFalse(document1.equals(null));
+        assertFalse(document2.equals(null));
     }
 
     @Test
