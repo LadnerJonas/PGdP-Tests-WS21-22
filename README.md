@@ -1,6 +1,10 @@
 # PGdP-Tests-WS21-22
  PGdP-Tests-WS21/22 is a student-created repository used to share code tests.
  
+### Important Note:
+
+As requested by Prof. Dr. Pretschner this repository will get closed after W04H01.  
+
 ---
 ## "Legal status"
 >Es ist alles erlaubt, was die Lösung nicht verrät.
