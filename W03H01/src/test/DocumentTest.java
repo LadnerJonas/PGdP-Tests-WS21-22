@@ -1,4 +1,4 @@
-package pgdp.searchengine;
+package test;
 
 import org.junit.jupiter.api.Test;
 import pgdp.searchengine.pagerepository.Author;
