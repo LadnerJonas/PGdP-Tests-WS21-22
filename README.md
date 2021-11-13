@@ -3,7 +3,7 @@
  
 ### Important Note:
 
-As requested by Prof. Dr. Pretschner this repository will get closed after W04H01.  
+In the near future, most exercises will contain test parts, like in W03H02. Therefore, this repository will only contain tests for the other parts.  
 
 ---
 ## "Legal status"
