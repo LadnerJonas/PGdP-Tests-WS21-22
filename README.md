@@ -81,7 +81,7 @@ Shoutout to the Contributors of the [TUM_GAD_Tests_SS21-Repository](https://gith
 
 ## How to contribute
 1. Fork Repository ([Github Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository))
-2. Add / edit tests
+2. Add / edit tests under `<EXERCISE>/src/test`
 3. **Ensure no solution or homework-code is getting revealed**
 4. Commit and push to your fork repository
 5. Open a Pull Request to this repository ([Github Documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests))
