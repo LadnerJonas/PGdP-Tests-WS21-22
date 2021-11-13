@@ -25,6 +25,7 @@ public class TestSAT {
         assertEquals(expected, actual);
 
     }
+
     private static Stream<Arguments> provideParametersIsPow() {
         return Stream.of(
                 Arguments.of(3, 8, true),
@@ -44,15 +45,16 @@ public class TestSAT {
         assertEquals(expected, actual);
 
     }
+
     private static Stream<Arguments> provideParametersIsCentralBin() {
         return Stream.of(
-                Arguments.of(0,false),
-                Arguments.of(1,true),
-                Arguments.of(2,true),
-                Arguments.of(924,true),
-                Arguments.of(252,true),
-                Arguments.of(925,false),
-                Arguments.of(48620,true),
+                Arguments.of(0, false),
+                Arguments.of(1, true),
+                Arguments.of(2, true),
+                Arguments.of(924, true),
+                Arguments.of(252, true),
+                Arguments.of(925, false),
+                Arguments.of(48620, true),
                 Arguments.of(-3, false),
                 Arguments.of(100000000000000000L, false),
                 Arguments.of(7648690600760440L, true),
@@ -68,35 +70,38 @@ public class TestSAT {
         assertEquals(expected, actual);
 
     }
+
     private static Stream<Arguments> provideParametersIsJacobsthal() {
         return Stream.of(
-                Arguments.of(-3,false),
-                Arguments.of(0,true),
-                Arguments.of(1,true),
-                Arguments.of(2,false),
-                Arguments.of(3,true),
-                Arguments.of(171,true),
-                Arguments.of(192153584101141163L,true),
-                Arguments.of(192153584101141164L,false)
+                Arguments.of(-3, false),
+                Arguments.of(0, true),
+                Arguments.of(1, true),
+                Arguments.of(2, false),
+                Arguments.of(3, true),
+                Arguments.of(171, true),
+                Arguments.of(192153584101141163L, true),
+                Arguments.of(192153584101141164L, false)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideParametersIsLucasLike")
         //checking multiple values for IntToPingu
     void testIsLucasLike(long x0, long x1, int a, int b, long n, boolean expected) {
-        boolean actual = isLucasLikeSequence(x0,x1,a,b,n);
+        boolean actual = isLucasLikeSequence(x0, x1, a, b, n);
         assertEquals(expected, actual);
 
     }
+
     private static Stream<Arguments> provideParametersIsLucasLike() {
         return Stream.of(
-                Arguments.of(0,0,0,-3,10,false),
-                Arguments.of(0,0,0,0, 50, false),
-                Arguments.of(0,1,2,1, 2,false),
-                Arguments.of(0,1,2,1, 11,true),
-                Arguments.of(0,1,2,1, 171,true),
-                Arguments.of(0,1,2,1, 192153584101141163L,true),
-                Arguments.of(0,1,2,1, 192153584101141164L,false)
+                Arguments.of(0, 0, 0, -3, 10, false),
+                Arguments.of(0, 0, 0, 0, 50, false),
+                Arguments.of(0, 1, 2, 1, 2, false),
+                Arguments.of(0, 1, 2, 1, 11, true),
+                Arguments.of(0, 1, 2, 1, 171, true),
+                Arguments.of(0, 1, 2, 1, 192153584101141163L, true),
+                Arguments.of(0, 1, 2, 1, 192153584101141164L, false)
         );
     }
 
