@@ -97,6 +97,8 @@ public class TestSAT {
         return Stream.of(
                 Arguments.of(0, 0, 0, -3, 10, false),
                 Arguments.of(0, 0, 0, 0, 50, false),
+                Arguments.of(0, 0, 2, 3, 0, true),
+                Arguments.of(2, 3, 0, 0, 0, true),
                 Arguments.of(0, 1, 2, 1, 2, false),
                 Arguments.of(0, 1, 2, 1, 11, true),
                 Arguments.of(0, 1, 2, 1, 171, true),
