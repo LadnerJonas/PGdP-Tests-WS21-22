@@ -32,9 +32,9 @@ public class TestSAT {
                 Arguments.of(4, 8, false),
                 Arguments.of(0, 1, true),
                 Arguments.of(8, 100000000, true),
-                Arguments.of(10, 1024, true), //2^10
-                Arguments.of(-5, 2, false), //edge case --> return false
-                Arguments.of(3, -8, false) //edge case --> return false
+                Arguments.of(10, 1024, true),
+                Arguments.of(-5, 2, false),
+                Arguments.of(3, -8, false)
         );
     }
 
