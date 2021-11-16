@@ -1,30 +1,15 @@
 package test;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import pgdp.pingumath.SAT;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static pgdp.pingumath.NumberConverter.intToPinguNum;
 import static pgdp.pingumath.SAT.*;
 
 public class TestSAT {
-
-    @ParameterizedTest
-    @MethodSource("provideParametersIsPow")
-        //checking multiple values for IntToPingu
-    void testIsPow(int i, long n, boolean expected) {
-        boolean actual = isPow(i, n);
-        assertEquals(expected, actual);
-
-    }
 
     private static Stream<Arguments> provideParametersIsPow() {
         return Stream.of(
@@ -39,10 +24,20 @@ public class TestSAT {
     }
 
     @ParameterizedTest
-    @MethodSource("provideParametersIsCentralBin")
-        //checking multiple values for IntToPingu
-    void testIsCentralBin(long n, boolean expected) {
-        boolean actual = isCentralBin(n);
+    @MethodSource("provideParametersIsPow")
+        //checking multiple values for IsPow
+    void testIsPow(int i, long n, boolean expected) {
+        long startTime = System.currentTimeMillis();
+
+        boolean actual = isPow(i, n);
+
+        long endTime = System.currentTimeMillis();
+        // Check if method is faster than 900ms --> artemis server is slow, thus, 900 ms instead of 1 s
+        if (endTime > startTime + 900L) {
+            System.out.println("Your method takes too long...");
+            assertEquals(true, false);
+        }
+
         assertEquals(expected, actual);
 
     }
@@ -64,10 +59,19 @@ public class TestSAT {
     }
 
     @ParameterizedTest
-    @MethodSource("provideParametersIsJacobsthal")
-        //checking multiple values for IntToPingu
-    void testIsJacobsthal(long n, boolean expected) {
-        boolean actual = isJacobsthal(n);
+    @MethodSource("provideParametersIsCentralBin")
+        //checking multiple values for IsCentralBin
+    void testIsCentralBin(long n, boolean expected) {
+        long startTime = System.currentTimeMillis();
+
+        boolean actual = isCentralBin(n);
+
+        long endTime = System.currentTimeMillis();
+        // Check if method is faster than 900ms --> artemis server is slow, thus, 900 ms instead of 1 s
+        if (endTime > startTime + 900L) {
+            System.out.println("Your method takes too long...");
+            assertEquals(true, false);
+        }
         assertEquals(expected, actual);
 
     }
@@ -86,10 +90,20 @@ public class TestSAT {
     }
 
     @ParameterizedTest
-    @MethodSource("provideParametersIsLucasLike")
-        //checking multiple values for IntToPingu
-    void testIsLucasLike(long x0, long x1, int a, int b, long n, boolean expected) {
-        boolean actual = isLucasLikeSequence(x0, x1, a, b, n);
+    @MethodSource("provideParametersIsJacobsthal")
+        //checking multiple values for IsJacobsthal
+    void testIsJacobsthal(long n, boolean expected) {
+        long startTime = System.currentTimeMillis();
+
+        boolean actual = isJacobsthal(n);
+
+        long endTime = System.currentTimeMillis();
+        // Check if method is faster than 900ms --> artemis server is slow, thus, 900 ms instead of 1 s
+        if (endTime > startTime + 900L) {
+            System.out.println("Your method takes too long...");
+            assertEquals(true, false);
+        }
+
         assertEquals(expected, actual);
 
     }
@@ -108,5 +122,23 @@ public class TestSAT {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("provideParametersIsLucasLike")
+        //checking multiple values for IsLucasLike
+    void testIsLucasLike(long x0, long x1, int a, int b, long n, boolean expected) {
+        long startTime = System.currentTimeMillis();
+
+        boolean actual = isLucasLikeSequence(x0, x1, a, b, n);
+
+        long endTime = System.currentTimeMillis();
+        // Check if method is faster than 900ms --> artemis server is slow, thus, 900 ms instead of 1 s
+        if (endTime > startTime + 900L) {
+            System.out.println("Your method takes too long...");
+            assertEquals(true, false);
+        }
+
+        assertEquals(expected, actual);
+
+    }
 }
 
