@@ -2,7 +2,6 @@ package test;
 
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,15 +22,6 @@ public class TestNumberConverter {
 
     }
 
-    @ParameterizedTest
-    @MethodSource("provideParametersIntToNum")
-        //checking multiple values for IntToPingu
-    void testIntToPingu(String expectedPinguNum, int decimalNum) {
-        String s = intToPinguNum(decimalNum);
-        assertEquals(expectedPinguNum, s);
-
-    }
-
     private static Stream<Arguments> provideParametersIntToNum() {
         return Stream.of(
                 Arguments.of("In", 0),
@@ -42,6 +32,28 @@ public class TestNumberConverter {
                 Arguments.of("Gupinpinguin", 156),
                 Arguments.of("Gupinpinguininingupinin", 37923)
         );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideParametersIntToNum")
+        //checking multiple values for IntToPingu
+    void testIntToPingu(String expectedPinguNum, int decimalNum) {
+        String s = intToPinguNum(decimalNum);
+        assertEquals(expectedPinguNum, s);
+
+    }
+
+    private static Stream<Arguments> provideParametersNumToInt() {
+        return Stream.of(
+                Arguments.of("In", 0),
+                Arguments.of("Gu", 1),
+                Arguments.of("Pin", 2),
+                Arguments.of("Pinguin", 21),
+                Arguments.of("Gugupin", 14),
+                Arguments.of("Gupinpinguin", 156),
+                Arguments.of("Gupinpinguininingupinin", 37923)
+        );
+
     }
 
     //Checking multiple invalid values
@@ -59,19 +71,6 @@ public class TestNumberConverter {
     void testNumToIntValid(String num, int expected_val) {
         int val = pinguNumToInt(num);
         assertEquals(expected_val, val);
-
-    }
-
-    private static Stream<Arguments> provideParametersNumToInt() {
-        return Stream.of(
-                Arguments.of("In", 0),
-                Arguments.of("Gu", 1),
-                Arguments.of("Pin", 2),
-                Arguments.of("Pinguin", 21),
-                Arguments.of("Gugupin", 14),
-                Arguments.of("Gupinpinguin", 156),
-                Arguments.of("Gupinpinguininingupinin", 37923)
-        );
 
     }
 }
