@@ -117,8 +117,10 @@ public class TestSAT {
                 Arguments.of(0, 1, 2, 1, 2, false),
                 Arguments.of(0, 1, 2, 1, 11, true),
                 Arguments.of(0, 1, 2, 1, 171, true),
-                Arguments.of(0, 1, 2, 1, 192153584101141163L, true),
-                Arguments.of(0, 1, 2, 1, 192153584101141164L, false)
+                Arguments.of(0, 1, 2, 1, 1501199875790165L, true)/*,
+                Arguments.of(0, 1, 2, 1, 192153584101141163L, true),// this test case is above 1e15
+                //Arguments.of(0, 1, 2, 1, 192153584101141164L, false) // this test case is above 1e15
+                */
         );
     }
 
