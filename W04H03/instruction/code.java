@@ -1,7 +1,5 @@
 package instruction;
 
-import java.util.Scanner;
-
 class InstructionCode {
   
   public static void main(String[] args) {
@@ -30,9 +28,6 @@ class InstructionCode {
   }
   
   private static int readInt() {
-    Scanner in = new Scanner(System.in);
-    System.out.print("Geben Sie bitte eine Zahl ein: ");
-    return in.nextInt();
+    return 60;
   }
-  
 }
