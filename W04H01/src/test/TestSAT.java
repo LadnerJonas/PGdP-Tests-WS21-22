@@ -53,8 +53,8 @@ public class TestSAT {
                 Arguments.of(48620, true),
                 Arguments.of(-3, false),
                 Arguments.of(100000000000000000L, false),
-                Arguments.of(7648690600760440L, true),
-                Arguments.of(118264581564861424L, true)
+                Arguments.of(7648690600760440L, true)/*, this test case is above 1e17
+                Arguments.of(118264581564861424L, true)*/
         );
     }
 
