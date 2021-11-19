@@ -14,7 +14,7 @@ public class AuthorTest {
     Author author1 = new Author("Jonas", "Ladner", "Garching-City", "tum@tum.de", new Date(27, 11, 2000));
     assertEquals(20, author1.getAge());
     
-    Author author2 = new Author("Max", "Mustermann", "Garching-City", "tum@tum.de", new Date(LocalDate.now().getDayOfMonth(), LocalDate.now().getMonthValue(), LocalDate.now().getYear()));
+    Author author2 = new Author("Max", "Mustermann", "Garching-City", "tum@tum.de", new Date(Date.today().getDay(), Date.today().getMonth(), Date.today().getYear()));
     assertEquals(0, author2.getAge());
     
     Author author3 = new Author("Erika", "Mustermann", "Garching-City", "tum@tum.de", new Date(27, 1, 2000));
