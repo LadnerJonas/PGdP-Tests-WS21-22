@@ -58,7 +58,7 @@ public class TestNumberConverter {
 
     //Checking multiple invalid values
     @ParameterizedTest
-    @ValueSource(strings = {"123", "pinguin", "Piniguin", "abc", ""})
+    @ValueSource(strings = {"123", "pinguin", "Piniguin", "abc", "", "Ingu"})
     void testNumToIntInvalid(String string) {
         int val = pinguNumToInt(string);
         assertEquals(-1, val);
