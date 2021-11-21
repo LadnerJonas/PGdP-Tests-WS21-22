@@ -51,14 +51,15 @@ public class TestNumberConverter {
                 Arguments.of("Pinguin", 21),
                 Arguments.of("Gugupin", 14),
                 Arguments.of("Gupinpinguin", 156),
-                Arguments.of("Gupinpinguininingupinin", 37923)
+                Arguments.of("Gupinpinguininingupinin", 37923),
+                Arguments.of("Ininpin", 2) // see https://zulip.in.tum.de/#narrow/stream/822-PGdP-W04H01--.20PinguMath/topic/F.C3.BChrende.200/near/331120
         );
 
     }
 
     //Checking multiple invalid values
     @ParameterizedTest
-    @ValueSource(strings = {"123", "pinguin", "Piniguin", "abc", "", "Ingu"})
+    @ValueSource(strings = {"123", "pinguin", "Piniguin", "abc", ""})
     void testNumToIntInvalid(String string) {
         int val = pinguNumToInt(string);
         assertEquals(-1, val);
