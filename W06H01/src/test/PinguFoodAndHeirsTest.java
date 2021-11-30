@@ -43,6 +43,7 @@ public class PinguFoodAndHeirsTest {
     assertFalse(pf3.isEdible());
     
     PinguFood pf4 = new Anchovie(1, 5);
+    
     assertTrue(pf4.isEdible());
   }
   
@@ -73,22 +74,22 @@ public class PinguFoodAndHeirsTest {
   //Sardine
   @Test
   void isEdibleSardineest() {
-    PinguFood pf1 = new Sardine(0, 100,14);
-    PinguFood pf2 = new Sardine(1, 99,14);
-    PinguFood pf3 = new Sardine(1, 100,13);
+    PinguFood pf1 = new Sardine(0, 100, 14);
+    PinguFood pf2 = new Sardine(1, 99, 14);
+    PinguFood pf3 = new Sardine(1, 100, 13);
     
     assertFalse(pf1.isEdible());
     assertFalse(pf2.isEdible());
     assertFalse(pf3.isEdible());
     
-    PinguFood pf4 = new Sardine(1, 100,14);
-    assertTrue(pf4.isEdible());
+    PinguFood pf4 = new Sardine(1, 100, 14);
     
+    assertTrue(pf4.isEdible());
   }
   
   @Test
   void toStringSardineTest() {
-    PinguFood pf1 = new Sardine(1, 100,14);
+    PinguFood pf1 = new Sardine(1, 100, 14);
     
     assertEquals("Sardine(Alter: 1 Jahre, Gewicht: 100g, Länge: 14)", pf1.toString());
   }
