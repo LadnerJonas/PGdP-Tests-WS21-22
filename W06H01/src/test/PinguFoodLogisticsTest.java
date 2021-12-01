@@ -56,7 +56,7 @@ public class PinguFoodLogisticsTest {
   }
   
   @Test
-  void registerUnusedFoodTest() {
+  void registerUnusedFoodAndprintWasteStatisticsTest() {
     PinguFoodLogistics pfl1 = new PinguFoodLogistics(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(15));
     pfl1.printWasteStatistics();
     
@@ -79,6 +79,16 @@ public class PinguFoodLogisticsTest {
     
     assertTrue(baos.toString().contains("Bisher konnten 37 Tiere mit einem Gesamtgewicht von 4959g nicht verwertet werden.\n" +
             "Claudia und Karl-Heinz ist dadurch ein Profit von 73735PD entgangen."));
+    
+    pfl1.acceptNewOrder(new TradeOrder());
+    pfl1.clearOrderBook();
+    PrepareConsole();
+    pfl1.printWasteStatistics();
+    
+    assertTrue(baos.toString().contains("Bisher konnten 38 Tiere mit einem Gesamtgewicht von 5055g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 75175PD entgangen."));
+  }
+  
   @Test
   void clearOrderBookTest() {
     PinguFoodLogistics pfl1 = new PinguFoodLogistics(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(15));
