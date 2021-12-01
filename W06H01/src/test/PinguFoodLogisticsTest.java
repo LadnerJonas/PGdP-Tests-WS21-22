@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PinguFoodLogisticsTest {
@@ -44,14 +45,15 @@ public class PinguFoodLogisticsTest {
     pfl1.printWasteStatistics();
     
     //assertEquals("", baos.toString());
-    assertTrue(baos.toString().contains("Bisher konnten 0 Tiere mit einem Gesamtgewicht von 0g nicht verwertet werden.\n" +
-            "Claudia und Karl-Heinz ist dadurch ein Profit von 0PD entgangen."));
+    assertTrue(baos.toString().contains("Bisher konnten 15 Tiere mit einem Gesamtgewicht von 2373g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 35595PD entgangen."));
     
     pfl1.acceptNewOrder(new WeightOrder(1000));
     pfl1.clearOrderBook();
     PrepareConsole();
     pfl1.printWasteStatistics();
-    assertTrue(baos.toString().contains("Bisher konnten 23 Tiere mit einem Gesamtgewicht von 2750g nicht verwertet werden.\n" +
-            "Claudia und Karl-Heinz ist dadurch ein Profit von 40640PD entgangen."));
+    
+    assertTrue(baos.toString().contains("Bisher konnten 37 Tiere mit einem Gesamtgewicht von 4959g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 73735PD entgangen."));
   }
 }
