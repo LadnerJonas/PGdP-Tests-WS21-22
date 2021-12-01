@@ -79,5 +79,51 @@ public class PinguFoodLogisticsTest {
     
     assertTrue(baos.toString().contains("Bisher konnten 37 Tiere mit einem Gesamtgewicht von 4959g nicht verwertet werden.\n" +
             "Claudia und Karl-Heinz ist dadurch ein Profit von 73735PD entgangen."));
+  @Test
+  void clearOrderBookTest() {
+    PinguFoodLogistics pfl1 = new PinguFoodLogistics(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(15));
+    pfl1.clearOrderBook();
+    
+    //assertEquals("", baos.toString()); can be used to check what your console output is
+    assertTrue(baos.toString().contains("Es können 0 Bestellungen abgearbeitet werden."));
+    PrepareConsole();
+    
+    pfl1.acceptNewOrder(new AmountOrder(3, 0, 5));
+    pfl1.clearOrderBook();
+    
+    assertTrue(baos.toString().contains("Es können 1 Bestellungen abgearbeitet werden."));
+    assertTrue(baos.toString().contains("Die Bestellung(Anzahl: [3,0,5]) hat ein Gesamtgewicht von 1107g und kostet 15685PD."));
+    PrepareConsole();
+    pfl1.printWasteStatistics();
+    assertTrue(baos.toString().contains("Bisher konnten 17 Tiere mit einem Gesamtgewicht von 2289g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 33525PD entgangen."));
+    PrepareConsole();
+    
+    pfl1.acceptNewOrder(new TradeOrder());
+    pfl1.acceptNewOrder(new WeightOrder(0));
+    pfl1.acceptNewOrder(new AmountOrder(0, 0, 0));
+    pfl1.clearOrderBook();
+    assertTrue(baos.toString().contains("Es können 3 Bestellungen abgearbeitet werden."));
+    assertTrue(baos.toString().contains("Die Bestellung(Einzeln) hat ein Gesamtgewicht von 2g und kostet 20PD."));
+    PrepareConsole();
+    pfl1.printWasteStatistics();
+    assertTrue(baos.toString().contains("Bisher konnten 17 Tiere mit einem Gesamtgewicht von 2289g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 33525PD entgangen."));
+    
+    pfl1.acceptNewOrder(new TradeOrder());
+    pfl1.acceptNewOrder(new WeightOrder(500));
+    pfl1.acceptNewOrder(new AmountOrder(9, 7, 8));
+    pfl1.clearOrderBook();
+    assertTrue(baos.toString().contains("Es können 3 Bestellungen abgearbeitet werden."));
+    assertTrue(baos.toString().contains("Die Bestellung(Einzeln) hat ein Gesamtgewicht von 10g und kostet 100PD."));
+    assertTrue(baos.toString().contains("Die Bestellung(Zielgewicht: 500g) hat ein Gesamtgewicht von 597g und kostet 7180PD."));
+    assertTrue(baos.toString().contains("Die Bestellung(Anzahl: [9,7,8]) hat ein Gesamtgewicht von 2029g und kostet 27340PD."));
+    PrepareConsole();
+    pfl1.printWasteStatistics();
+    assertTrue(baos.toString().contains("Bisher konnten 32 Tiere mit einem Gesamtgewicht von 4452g nicht verwertet werden.\n" +
+            "Claudia und Karl-Heinz ist dadurch ein Profit von 65510PD entgangen."));
+    
   }
+  
+  
 }
