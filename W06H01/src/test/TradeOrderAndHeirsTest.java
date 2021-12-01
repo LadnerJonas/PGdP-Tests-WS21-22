@@ -125,7 +125,6 @@ public class TradeOrderAndHeirsTest {
     assertTrue(to1.isOrderFulfilled());
     to1.supplyOrder(new Sardine(1, 100, 15), BigDecimal.ONE);
     // see https://zulip.in.tum.de/#narrow/stream/846-PGdP-W06H01--.20Saleuine.20Grosshandel/topic/.E2.9C.94.20isOrderFulfilled.20AmountOrder/near/369739
-    assertFalse(to1.isOrderFulfilled());
   }
   
   @Test
