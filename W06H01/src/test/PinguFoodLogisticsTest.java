@@ -3,20 +3,44 @@ package test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pgdp.PinguLib;
 import pgdp.saleuine2.AmountOrder;
 import pgdp.saleuine2.PinguFoodLogistics;
+import pgdp.saleuine2.TradeOrder;
 import pgdp.saleuine2.WeightOrder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/*
+ If you think a test is wrong, please open an Issue on GitHub.
+ See https://github.com/LadnerJonas/PGdP-Tests-WS21-22#important-note-1
+ */
+
 
 public class PinguFoodLogisticsTest {
   private PrintStream old;
   private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+  
+  @BeforeEach
+  void ResetRandomSeed() {
+    // Using Reflection to access private fields outside of class.
+    // (Psst! Do not tell the so-called Übungsleitung)
+    PinguLib pinguLib = new PinguLib();
+    Class obj = pinguLib.getClass();
+    try {
+      Field field = obj.getDeclaredField("rand");
+      field.setAccessible(true);
+      field.set(pinguLib, null);
+    } catch (NoSuchFieldException | IllegalAccessException e) {
+      e.printStackTrace();
+    }
+    PinguLib.setRandom();
+  }
   
   @BeforeEach
   void PrepareConsole() {

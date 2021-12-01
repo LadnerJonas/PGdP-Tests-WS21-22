@@ -1,10 +1,14 @@
 package test;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pgdp.PinguLib;
 import pgdp.saleuine2.Anchovie;
 import pgdp.saleuine2.Crustacean;
 import pgdp.saleuine2.PinguFood;
 import pgdp.saleuine2.Sardine;
+
+import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +19,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class PinguFoodAndHeirsTest {
+  
+  @BeforeEach
+  void ResetRandomSeed() {
+    // Using Reflection to access private fields outside of class.
+    // (Psst! Do not tell the so-called Übungsleitung)
+    PinguLib pinguLib = new PinguLib();
+    Class obj = pinguLib.getClass();
+    try {
+      Field field = obj.getDeclaredField("rand");
+      field.setAccessible(true);
+      field.set(pinguLib, null);
+    } catch (NoSuchFieldException | IllegalAccessException e) {
+      e.printStackTrace();
+    }
+    PinguLib.setRandom();
+  }
   
   // PinguFood
   @Test

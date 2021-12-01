@@ -5,14 +5,34 @@ package test;
  See https://github.com/LadnerJonas/PGdP-Tests-WS21-22#important-note-1
  */
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pgdp.PinguLib;
 import pgdp.saleuine2.*;
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TradeOrderAndHeirsTest {
+  
+  @BeforeEach
+  void ResetRandomSeed() {
+    // Using Reflection to access private fields outside of class.
+    // (Psst! Do not tell the so-called Übungsleitung)
+    PinguLib pinguLib = new PinguLib();
+    Class obj = pinguLib.getClass();
+    try {
+      Field field = obj.getDeclaredField("rand");
+      field.setAccessible(true);
+      field.set(pinguLib, null);
+    } catch (NoSuchFieldException | IllegalAccessException e) {
+      e.printStackTrace();
+    }
+    PinguLib.setRandom();
+  }
+  
   // TradeOrder
   @Test
   void orderTypeTradeOrder() {
