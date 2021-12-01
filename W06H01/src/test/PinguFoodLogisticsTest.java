@@ -68,7 +68,7 @@ public class PinguFoodLogisticsTest {
     PrepareConsole();
     pfl1.printWasteStatistics();
     
-    //assertEquals("", baos.toString());
+    //assertEquals("", baos.toString()); can be used to check what your console output is
     assertTrue(baos.toString().contains("Bisher konnten 15 Tiere mit einem Gesamtgewicht von 2373g nicht verwertet werden.\n" +
             "Claudia und Karl-Heinz ist dadurch ein Profit von 35595PD entgangen."));
     
