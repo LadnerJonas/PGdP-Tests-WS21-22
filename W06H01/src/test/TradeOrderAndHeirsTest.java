@@ -153,17 +153,26 @@ public class TradeOrderAndHeirsTest {
     TradeOrder to1 = new AmountOrder(1, 2, 3);
     
     assertFalse(to1.supplyOrder(new PinguFood(1, 100), BigDecimal.ONE));
+    
     assertTrue(to1.supplyOrder(new Anchovie(1, 100), BigDecimal.ONE));
     assertFalse(to1.isOrderFulfilled());
+    
+    assertFalse(to1.supplyOrder(new Anchovie(1, 100), BigDecimal.ONE)); // Target already reached
+    
     assertTrue(to1.supplyOrder(new Crustacean(100), BigDecimal.ONE));
     assertTrue(to1.supplyOrder(new Crustacean(100), BigDecimal.ONE));
     assertFalse(to1.isOrderFulfilled());
+    
+    assertFalse(to1.supplyOrder(new Crustacean(100), BigDecimal.ONE)); // Target already reached
+    
     assertFalse(to1.supplyOrder(new Sardine(0, 100, 14), BigDecimal.ONE));
     assertFalse(to1.supplyOrder(new Sardine(1, 100, 13), BigDecimal.ONE));
+    
     assertTrue(to1.supplyOrder(new Sardine(1, 100, 14), BigDecimal.ONE));
     assertTrue(to1.supplyOrder(new Sardine(1, 100, 14), BigDecimal.ONE));
     assertTrue(to1.supplyOrder(new Sardine(1, 100, 14), BigDecimal.ONE));
     assertTrue(to1.isOrderFulfilled());
-    assertFalse(to1.supplyOrder(new Sardine(1, 100, 13), BigDecimal.ONE));
+    
+    assertFalse(to1.supplyOrder(new Sardine(1, 100, 15), BigDecimal.ONE)); // Order is fulfilled
   }
 }
