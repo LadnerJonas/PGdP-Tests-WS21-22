@@ -24,7 +24,7 @@ public class WordCountTests {
     Field normalizedWeight = null;
     try {
       weight = wc1.getClass().getDeclaredField("weight");
-      normalizedWeight = wc1.getClass().getDeclaredField("weight");
+      normalizedWeight = wc1.getClass().getDeclaredField("normalizedWeight");
       weight.setAccessible(true);
       normalizedWeight.setAccessible(true);
     } catch (NoSuchFieldException e) {
