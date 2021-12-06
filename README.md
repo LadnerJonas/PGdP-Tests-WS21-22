@@ -21,7 +21,7 @@ correct:
 // Arrange
 Rectangle r1 = new Rectangle(length: 4, width: 4)
 // Act & Assert
-Assert.assertEquals(16, r1.calculateArea());
+assertEquals(16, r1.calculateArea());
 ```
 wrong!:
 ```java
@@ -30,7 +30,7 @@ wrong!:
 Rectangle r1 = new Rectangle(length: 4, width: 6)
 // Act & Assert
 // Calculate using length * width             // <-- reveales the solution
-Assert.assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
+assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
 ```
 ---
 
