@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // Not finished yet
 // Feel free to contribute
 
-public class DocumentCollectionTests {
+public class WordCountTests {
   @Test
   void WordCountCtorTest() throws IllegalAccessException {
     WordCount wc1 = new WordCount("Test1", 0);
