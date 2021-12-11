@@ -1,36 +1,34 @@
 package publictest;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pgdp.searchengine.pagerepository.Document;
 import pgdp.searchengine.pagerepository.DocumentListElement;
-import pgdp.searchengine.util.WordCount;
-
-import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ If you think a test is wrong, please open an Issue on GitHub.
+ See https://github.com/LadnerJonas/PGdP-Tests-WS21-22#important-note-1
+ */
+
+// TODO Not finished yet
+// TODO Feel free to contribute
+
+
 public class DocumentListElementTests {
+  
   @Test
-  void DocumentListElementCtorTest() throws IllegalAccessException {
-    Document doc1 = new Document("Titel1", "Beschreibung1", "a aa aaa aaaa", null, null);
+  void DocumentListElementCtorTest() {
+    DocumentCollectionTests.PrepareDocuments();
+    Document document0 = DocumentCollectionTests.doc0;
     
-    DocumentListElement dcl1 = new DocumentListElement(doc1);
+    DocumentListElement dcl1 = new DocumentListElement(document0);
     
-    Field wordCountArray = null;
-    Field similarity = null;
-    try {
-      wordCountArray = dcl1.getClass().getDeclaredField("wordCountArray");
-      similarity = dcl1.getClass().getDeclaredField("similarity");
-      wordCountArray.setAccessible(true);
-      similarity.setAccessible(true);
-    } catch (NoSuchFieldException e) {
-      e.printStackTrace();
+    for (int i = 0; i < document0.getWordCountArray().length; i++) {
+      assertEquals(document0.getWordCountArray()[i].getWord(), dcl1.getWordCountArray()[i].getWord());
+      assertEquals(document0.getWordCountArray()[i].getCount(), dcl1.getWordCountArray()[i].getCount());
     }
-    
-    for (int i = 0; i < doc1.getWordCountArray().length; i++) {
-      assertEquals(doc1.getWordCountArray()[i].getWord(), ((WordCount[]) wordCountArray.get(dcl1))[i].getWord());
-      assertEquals(doc1.getWordCountArray()[i].getCount(), ((WordCount[]) wordCountArray.get(dcl1))[i].getCount());
-    }
-    assertEquals(0.0, similarity.get(dcl1));
+    assertEquals(0.0, dcl1.getSimilarity());
   }
 }

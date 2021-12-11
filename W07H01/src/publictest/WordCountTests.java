@@ -3,40 +3,43 @@ package publictest;
 import org.junit.jupiter.api.Test;
 import pgdp.searchengine.util.WordCount;
 
-import java.lang.reflect.Field;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /*
  If you think a test is wrong, please open an Issue on GitHub.
  See https://github.com/LadnerJonas/PGdP-Tests-WS21-22#important-note-1
  */
 
-// Not finished yet
-// Feel free to contribute
+// TODO Not finished yet
+// TODO Feel free to contribute
 
 public class WordCountTests {
   @Test
-  void WordCountCtorTest() throws IllegalAccessException {
+  void friendlyReminder() {
+    /*
+     * This failing test is just a friendly reminder that this collection of tests incomplete.
+     * Thus, you will have to debug your code and find your bugs yourself.
+     * Otherwise, tests can be added by opening a pull request via GitHub.
+     * */
+    assertFalse(true, "\u001B[36m" + """
+            
+            This failing test is just a friendly reminder that this collection of tests is incomplete.\s
+            Thus, you will have to debug your code and find your bugs yourself.
+            Otherwise, tests can be added by opening a pull request on GitHub.
+            """);
+  }
+  
+  @Test
+  void WordCountCtorTest()  {
     WordCount wc1 = new WordCount("Test1", 0);
     
-    Field weight = null;
-    Field normalizedWeight = null;
-    try {
-      weight = wc1.getClass().getDeclaredField("weight");
-      normalizedWeight = wc1.getClass().getDeclaredField("normalizedWeight");
-      weight.setAccessible(true);
-      normalizedWeight.setAccessible(true);
-    } catch (NoSuchFieldException e) {
-      e.printStackTrace();
-    }
+    assertEquals(0.0, wc1.getWeight());
+    assertEquals(0.0, wc1.getNormalizedWeight());
     
-    assertEquals(0.0, weight.get(wc1));
-    assertEquals(0.0, normalizedWeight.get(wc1));
-  
     WordCount wc2 = new WordCount("Test2", 1);
-  
-    assertEquals(1.0, weight.get(wc2));
-    assertEquals(1.0, normalizedWeight.get(wc2));
+    
+    assertEquals(1.0, wc2.getWeight());
+    assertEquals(1.0, wc2.getNormalizedWeight());
   }
 }
