@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 // TODO Feel free to contribute
 
 public class WordCountTests {
+  
   @Test
   void friendlyReminder() {
     /*
@@ -31,7 +32,7 @@ public class WordCountTests {
   }
   
   @Test
-  void WordCountCtorTest()  {
+  void WordCountCtorTest() {
     WordCount wc1 = new WordCount("Test1", 0);
     
     assertEquals(0.0, wc1.getWeight());

@@ -1,6 +1,5 @@
 package publictest;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pgdp.searchengine.pagerepository.Document;
 import pgdp.searchengine.pagerepository.DocumentListElement;
