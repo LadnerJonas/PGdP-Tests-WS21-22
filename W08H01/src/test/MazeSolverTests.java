@@ -33,6 +33,10 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("roomMaze-2"), true),
             Arguments.of(mazeFromName("roomMaze-1"), true),
             Arguments.of(mazeFromName("mixedMaze-1"), true),
+            Arguments.of(mazeFromName("cornerMaze-tl"), true),
+            Arguments.of(mazeFromName("cornerMaze-tr"), true),
+            Arguments.of(mazeFromName("cornerMaze-bl"), true),
+            Arguments.of(mazeFromName("cornerMaze-br"), true)
             //, du kannst aber davon ausgehen, dass der exit immer vom entrance aus erreichbar ist
             // Arguments.of(mazeFromName("impossible"), false)
     );
