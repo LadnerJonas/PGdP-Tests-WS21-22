@@ -62,7 +62,7 @@ public class MazeSolverTests {
     assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
     assertTrue(maze.getEntrance() == positions[0] || maze.getEntrance() == positions[positions.length - 1] || Arrays.stream(positions).anyMatch(x -> x == maze.getEntrance()), "The path does not include the exit");
     assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
-    System.out.println("Path entered seems to be correct");
+    System.out.println("Path (above) entered seems to be correct\n");
     //System.out.println(maze.toString(path));
   }
   
