@@ -14,46 +14,46 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MazeSolverTests {
-
+  
   @ParameterizedTest
   @MethodSource
   void testMaze(Maze maze, boolean possible) {
     Path path = MazeSolver.solveMaze(maze);
     verifyPath(maze, path, possible);
   }
-
+  
   static Stream<Arguments> testMaze() {
     return Stream.of(
-      Arguments.of(easyMaze(), true),
-      Arguments.of(mediumMaze(), true),
-      Arguments.of(hardMaze(), true),
-      Arguments.of(impossibleMaze(), false)
+            Arguments.of(easyMaze(), true),
+            Arguments.of(mediumMaze(), true),
+            Arguments.of(hardMaze(), true),
+            Arguments.of(impossibleMaze(), false)
     );
   }
-
+  
   static Maze easyMaze() {
     return mazeFromName("easy");
   }
-
+  
   static Maze mediumMaze() {
     return mazeFromName("medium");
   }
-
+  
   static Maze hardMaze() {
     return mazeFromName("hard");
   }
-
+  
   static Maze impossibleMaze() {
     return mazeFromName("impossible");
   }
-
+  
   private final static String MAZE_SAVE_LOCATION = "src/test/mazes/%s.txt";
-
+  
   static Maze mazeFromName(String difficulty) {
     String uri = MAZE_SAVE_LOCATION.formatted(difficulty);
     return MazeParser.parseFromFile(uri);
   }
-
+  
   private void verifyPath(Maze maze, Path path, boolean possible) {
     if (path == null) {
       // verify that no path exists
@@ -67,12 +67,12 @@ public class MazeSolverTests {
       assertFalse(isWall(maze, position), "The path taken leads us into a wall :( (at " + position + ")");
     }
     assertEquals(maze.getEntrance(), positions[0], "The path does not include the entrance");
-    assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) +")");
+    assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
     assertEquals(maze.getExit(), positions[positions.length - 1], "The path does not include the exit");
     System.out.println("Path entered seems to be correct");
     System.out.println(maze.toString(path));
   }
-
+  
   private <T> boolean duplicatesIn(T[] array) {
     Set<T> set = new HashSet<>();
     for (T t : array) {
@@ -83,11 +83,11 @@ public class MazeSolverTests {
     }
     return false;
   }
-
+  
   private boolean isWall(Maze maze, Position position) {
     return isWall(maze, position.getI(), position.getJ());
   }
-
+  
   private boolean isWall(Maze maze, int i, int j) {
     try {
       Field field = Maze.class.getDeclaredField("tiles");
