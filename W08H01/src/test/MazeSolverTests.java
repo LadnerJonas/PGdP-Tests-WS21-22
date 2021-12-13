@@ -24,28 +24,14 @@ public class MazeSolverTests {
   
   static Stream<Arguments> testMaze() {
     return Stream.of(
-            Arguments.of(easyMaze(), true),
-            Arguments.of(mediumMaze(), true),
-            Arguments.of(hardMaze(), true),
-            Arguments.of(impossibleMaze(), false)
+            Arguments.of(mazeFromName("easy"), true),
+            Arguments.of(mazeFromName("medium"), true),
+            Arguments.of(mazeFromName("hard"), true),
+            Arguments.of(mazeFromName("roomMaze-1"), true),
+            // Arguments.of(mazeFromName("impossible"), false)
     );
   }
   
-  static Maze easyMaze() {
-    return mazeFromName("easy");
-  }
-  
-  static Maze mediumMaze() {
-    return mazeFromName("medium");
-  }
-  
-  static Maze hardMaze() {
-    return mazeFromName("hard");
-  }
-  
-  static Maze impossibleMaze() {
-    return mazeFromName("impossible");
-  }
   
   private final static String MAZE_SAVE_LOCATION = "src/test/mazes/%s.txt";
   
