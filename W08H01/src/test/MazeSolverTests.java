@@ -28,6 +28,11 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("medium"), true),
             Arguments.of(mazeFromName("hard"), true),
             Arguments.of(mazeFromName("roomMaze-1"), true),
+            Arguments.of(mazeFromName("roomMaze-2"), true),
+            Arguments.of(mazeFromName("roomMaze-3"), true),
+            Arguments.of(mazeFromName("roomMaze-debug-1"), true),
+            Arguments.of(mazeFromName("roomMaze-debug-2"), true)
+            //, du kannst aber davon ausgehen, dass der exit immer vom entrance aus erreichbar ist
             // Arguments.of(mazeFromName("impossible"), false)
     );
   }
@@ -52,11 +57,13 @@ public class MazeSolverTests {
     for (Position position : positions) {
       assertFalse(isWall(maze, position), "The path taken leads us into a wall :( (at " + position + ")");
     }
-    assertEquals(maze.getEntrance(), positions[0], "The path does not include the entrance");
-    assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
-    assertEquals(maze.getExit(), positions[positions.length - 1], "The path does not include the exit");
-    System.out.println("Path entered seems to be correct");
     System.out.println(maze.toString(path));
+    assertTrue(maze.getEntrance() == positions[0] || maze.getEntrance() == positions[positions.length - 1] || Arrays.stream(positions).anyMatch(x -> x == maze.getEntrance()), "The path does not include the entrance");
+    assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
+    assertTrue(maze.getEntrance() == positions[0] || maze.getEntrance() == positions[positions.length - 1] || Arrays.stream(positions).anyMatch(x -> x == maze.getEntrance()), "The path does not include the exit");
+    assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
+    System.out.println("Path entered seems to be correct");
+    //System.out.println(maze.toString(path));
   }
   
   private <T> boolean duplicatesIn(T[] array) {
