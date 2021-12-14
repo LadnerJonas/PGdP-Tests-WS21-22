@@ -28,7 +28,6 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("easy"), true),
             Arguments.of(mazeFromName("medium"), true),
             Arguments.of(mazeFromName("hard"), true),
-            Arguments.of(mazeFromName("exzellenz"), true),
             Arguments.of(mazeFromName("roomMaze-debug-1"), true),
             Arguments.of(mazeFromName("roomMaze-debug-2"), true),
             Arguments.of(mazeFromName("roomMaze-3"), true),
@@ -44,12 +43,22 @@ public class MazeSolverTests {
             // Arguments.of(mazeFromName("impossible"), false)
     );
   }
-
+  
   @Test
   void testNull() {
     assertNull(MazeSolver.solveMazeFrom(null, null));
     assertNull(MazeSolver.solveMazeFrom(mazeFromName("easy"), null));
     assertNull(MazeSolver.solveMaze(null));
+  }
+  
+  @Test
+  void testExcellenceMaze() {
+    /* This test maze is quite huge. This can lead to stackoverflow errors, when running multiple tests in parallel.
+     * So try running this test alone, if it fails.
+     */
+    Maze excellenceMaze = mazeFromName("exzellenz");
+    Path path = MazeSolver.solveMaze(excellenceMaze);
+    verifyPath(excellenceMaze, path, true);
   }
   
   private final static String MAZE_SAVE_LOCATION = "src/test/mazes/%s.txt";
