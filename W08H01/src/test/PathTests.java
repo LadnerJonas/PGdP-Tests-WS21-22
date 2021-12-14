@@ -46,7 +46,10 @@ public class PathTests {
             positionOf(0, 0)
     );
   }
-
+  
+  //Not needed because of https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/Null.20Eingaben
+  
+  /*
   @Test
   void testNull() {
     Path p = new Path();
@@ -54,7 +57,7 @@ public class PathTests {
     assertEquals(1, p.toPositionSet(new Position(0,0)).size());
     assertNull(p.toPositionSet(null));
     assertNull(p.getStep(2));
-  }
+  }*/
   
   private Position positionOf(int i, int j) {
     return new Position(i, j);
