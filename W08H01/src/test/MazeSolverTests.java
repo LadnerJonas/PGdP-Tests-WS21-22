@@ -28,6 +28,7 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("easy"), true),
             Arguments.of(mazeFromName("medium"), true),
             Arguments.of(mazeFromName("hard"), true),
+            Arguments.of(mazeFromName("exzellenz"), true),
             Arguments.of(mazeFromName("roomMaze-debug-1"), true),
             Arguments.of(mazeFromName("roomMaze-debug-2"), true),
             Arguments.of(mazeFromName("roomMaze-3"), true),
