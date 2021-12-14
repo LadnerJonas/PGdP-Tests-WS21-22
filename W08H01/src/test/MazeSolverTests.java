@@ -55,6 +55,7 @@ public class MazeSolverTests {
   void testExcellenceMaze() {
     /* This test maze is quite huge. This can lead to stackoverflow errors, when running multiple tests in parallel.
      * So try running this test alone, if it fails.
+     * Hinweis: Wir werden eure Lösungen nur mit Labyrinthen mit Seitenlängen <= 20 testen, also maximal mit einem 20x20-Labyrinth.
      */
     Maze excellenceMaze = mazeFromName("exzellenz");
     Path path = MazeSolver.solveMaze(excellenceMaze);
