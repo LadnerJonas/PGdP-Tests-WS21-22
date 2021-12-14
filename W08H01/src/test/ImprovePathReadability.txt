@@ -1,0 +1,24 @@
+    public String toString(Path solution) {
+        Set<Position> positionsOnPath = solution != null ? solution.toPositionSet(getEntrance()) : null;
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getWidth(); j++) {
+                if (entrance.isAt(i, j)) {
+                    sb.append("\u001B[36mE\u001B[0m");
+                } else if (exit.isAt(i, j)) {
+                    sb.append("\u001B[36mX\u001B[0m");
+                } else if (positionsOnPath != null && positionsOnPath.contains(new Position(i, j))) {
+                    sb.append("\u001B[32m*\u001B[0m");
+                } else {
+                    switch (tiles[i][j]) {
+                        case WALL -> sb.append('W');
+                        case SPACE -> sb.append(' ');
+                        case MARKED -> sb.append("\u001B[34m\'\u001B[0m");
+                    }
+                }
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
