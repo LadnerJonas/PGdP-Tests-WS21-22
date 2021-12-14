@@ -1,5 +1,6 @@
 package test;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -42,7 +43,13 @@ public class MazeSolverTests {
             // Arguments.of(mazeFromName("impossible"), false)
     );
   }
-  
+
+  @Test
+  void testNull() {
+    assertNull(MazeSolver.solveMazeFrom(null, null));
+    assertNull(MazeSolver.solveMazeFrom(mazeFromName("easy"), null));
+    assertNull(MazeSolver.solveMaze(null));
+  }
   
   private final static String MAZE_SAVE_LOCATION = "src/test/mazes/%s.txt";
   
