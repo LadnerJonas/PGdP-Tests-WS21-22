@@ -53,6 +53,7 @@ public class PathTests {
     p.prepend(null);
     assertEquals(1, p.toPositionSet(new Position(0,0)).size());
     assertNull(p.toPositionSet(null));
+    assertNull(p.getStep(2));
   }
   
   private Position positionOf(int i, int j) {
