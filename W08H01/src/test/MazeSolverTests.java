@@ -27,7 +27,8 @@ public class MazeSolverTests {
   static Stream<Arguments> testSolveMazeFrom() {
     return Stream.of(
             Arguments.of(mazeFromName("pathThroughEntranceMaze"), new Position(1, 1), true),
-            Arguments.of(mazeFromName("impossible"), new Position(1, 1), false));
+            Arguments.of(mazeFromName("impossible-1"), new Position(1, 1), false),
+            Arguments.of(mazeFromName("impossible-2"), new Position(1, 3), false));
   }
   
   
@@ -57,7 +58,7 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("noBorderMaze-1"), true),
             Arguments.of(mazeFromName("noBorderMaze-2"), true)
             //, du kannst aber davon ausgehen, dass der exit immer vom entrance aus erreichbar ist
-            // Arguments.of(mazeFromName("impossible"), false)
+            // Arguments.of(mazeFromName("impossible-1"), false)
     );
   }
   
