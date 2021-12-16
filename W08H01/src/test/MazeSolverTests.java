@@ -121,4 +121,9 @@ public class MazeSolverTests {
     }
     return false;
   }
+  
+  private static boolean positionComparator(Position p1, Position p2) {
+    return p1.getI() == p2.getI() && p1.getJ() == p2.getJ();
+    
+  }
 }
