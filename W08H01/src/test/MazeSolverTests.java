@@ -25,7 +25,9 @@ public class MazeSolverTests {
   }
   
   static Stream<Arguments> testSolveMazeFrom() {
-    return Stream.of(Arguments.of(mazeFromName("pathThroughEntranceMaze"), new Position(1, 1), true));
+    return Stream.of(
+            Arguments.of(mazeFromName("pathThroughEntranceMaze"), new Position(1, 1), true),
+            Arguments.of(mazeFromName("impossible"), new Position(1, 1), false));
   }
   
   
