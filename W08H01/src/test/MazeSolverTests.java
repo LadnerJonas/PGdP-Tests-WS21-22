@@ -29,6 +29,7 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("pathThroughEntranceMaze"), new Position(1, 1), true),
             Arguments.of(mazeFromName("impossible-1"), new Position(1, 1), false),
             Arguments.of(mazeFromName("easy"), new Position(8, 3), false), //https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/solveMazeFrom.28.29/near/401361
+            Arguments.of(mazeFromName("noEntranceMaze"), new Position(0, 4), true), //https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/.E2.9C.94.20No.20Entrance.20.3F.20-.20solveMazeFrom.28.29/near/401446
             Arguments.of(mazeFromName("impossible-2"), new Position(1, 3), false));
   }
   
@@ -100,11 +101,13 @@ public class MazeSolverTests {
     for (Position position : positions) {
       assertFalse(isWall(maze, position), "The path taken leads us into a wall :( (at " + position + ")");
     }
-    System.out.println(maze.toString(path));
     assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
+    if (maze.getEntrance() != null) {
+      System.out.println(maze.toString(path));
+      assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
+    }
     assertTrue(positionComparator(maze.getExit(), positions[0]) || positionComparator(maze.getExit(), positions[positions.length - 1]) ||
             Arrays.stream(positions).anyMatch(x -> positionComparator(maze.getExit(), x)), "The path does not include the exit");
-    assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
     System.out.println("Path (above) entered seems to be correct. Due to the nature of the ToString method the path can not be visualised\n");
     //System.out.println(maze.toString(path));
   }
