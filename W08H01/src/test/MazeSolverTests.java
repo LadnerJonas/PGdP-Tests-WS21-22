@@ -28,6 +28,7 @@ public class MazeSolverTests {
     return Stream.of(
             Arguments.of(mazeFromName("pathThroughEntranceMaze"), new Position(1, 1), true),
             Arguments.of(mazeFromName("impossible-1"), new Position(1, 1), false),
+            Arguments.of(mazeFromName("easy"), new Position(8, 3), false), //https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/solveMazeFrom.28.29/near/401361
             Arguments.of(mazeFromName("impossible-2"), new Position(1, 3), false));
   }
   
