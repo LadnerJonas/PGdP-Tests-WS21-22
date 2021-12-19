@@ -9,6 +9,7 @@ import pgdp.maze.*;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -30,7 +31,8 @@ public class MazeSolverTests {
             Arguments.of(mazeFromName("impossible-1"), new Position(1, 1), false),
             Arguments.of(mazeFromName("easy"), new Position(8, 3), false), //https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/solveMazeFrom.28.29/near/401361
             Arguments.of(mazeFromName("noEntranceMaze"), new Position(0, 4), true), //https://zulip.in.tum.de/#narrow/stream/864-PGdP-W08H01--.20Rekursive.20Pfade/topic/.E2.9C.94.20No.20Entrance.20.3F.20-.20solveMazeFrom.28.29/near/401446
-            Arguments.of(mazeFromName("impossible-2"), new Position(1, 3), false));
+            Arguments.of(mazeFromName("impossible-2"), new Position(1, 3), false),
+            Arguments.of(mazeFromName("easy"), new Position(8, 4), true));
   }
   
   
@@ -104,7 +106,11 @@ public class MazeSolverTests {
     assertFalse(duplicatesIn(positions), "The path taken contains duplicates (path " + Arrays.toString(positions) + ")");
     if (maze.getEntrance() != null) {
       System.out.println(maze.toString(path));
-      assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
+      if (Objects.equals(path.toString(), "[]")) {
+        assertEquals(1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
+      } else {
+        assertEquals(path.toString().split(",").length + 1, path.toPositionSet(maze.getEntrance()).size(), "The path most likely contains useless movement");
+      }
     }
     assertTrue(positionComparator(maze.getExit(), positions[0]) || positionComparator(maze.getExit(), positions[positions.length - 1]) ||
             Arrays.stream(positions).anyMatch(x -> positionComparator(maze.getExit(), x)), "The path does not include the exit");
