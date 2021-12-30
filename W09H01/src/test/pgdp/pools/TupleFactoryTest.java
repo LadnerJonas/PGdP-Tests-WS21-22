@@ -1,6 +1,7 @@
-package pgdp.pools;
+package test.pgdp.pools;
 
 import org.junit.jupiter.api.Test;
+import pgdp.pools.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
