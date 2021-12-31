@@ -1,7 +1,6 @@
 package pgdp.pools;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TupleTest {
@@ -24,13 +23,15 @@ class TupleTest {
     
     Tuple<Integer, String> tuple0 = new Tuple<>(int0, string0);
     Tuple<Integer, String> tuple0Duplicate = new Tuple<>(int0, string0);
+    Tuple<String, Integer> tuple0Reversed = new Tuple<>(string0, int0);
     
     assertEquals(tuple0, tuple0Duplicate);
+    assertNotEquals(tuple0, tuple0Reversed);
     
     Tuple<Integer, String> tuple2 = new Tuple<>(null, null);
     assertEquals(tuple2, tuple2);
   }
-  
+
   @Test
   void testHashCode() {
     Integer int0 = 123;
