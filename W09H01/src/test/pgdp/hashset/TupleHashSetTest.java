@@ -1,4 +1,4 @@
-package test.pgdp.hashset;
+package pgdp.hashset;
 
 import org.junit.jupiter.api.Test;
 import pgdp.pools.Tuple;
@@ -8,8 +8,6 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import pgdp.hashset.TupleHashSet;
 
 class TupleHashSetTest {
   
