@@ -27,14 +27,14 @@ class TupleHashSetTest {
     String string0 = "Ladner";
     Integer int1 = 321;
     String string1 = "Jonas";
-    
+
     Tuple<Integer, String> tuple0 = new Tuple<>(int0, string0);
     Tuple<Integer, String> tuple0Duplicate = new Tuple<>(int0, string0);
     Tuple<Integer, String> tuple1 = new Tuple<>(int1, string1);
     Tuple<Integer, String> tuple2 = new Tuple<>(int1, string0);
-    
-    integerStringTupleHashSet0.insert(tuple0);
+
     integerStringTupleHashSet0.insert(tuple0Duplicate);
+    integerStringTupleHashSet0.insert(tuple0);
     integerStringTupleHashSet0.insert(tuple1);
     integerStringTupleHashSet0.insert(tuple2);
     
@@ -415,14 +415,5 @@ class TupleHashSetTest {
       tuplesInHashSet.add(integerIntegerTuple);
     }
     assertEquals(353, tuplesInHashSet.size());
-    Arrays.stream(tuples).forEach(integerIntegerTupleHashSet::insert);
-    
-    tuplesInHashSet = new ArrayList<>();
-    for (Tuple<Integer, Integer> integerIntegerTuple : integerIntegerTupleHashSet) {
-      tuplesInHashSet.add(integerIntegerTuple);
-    }
-    assertEquals(353, tuplesInHashSet.size());
-    
   }
-  
 }
