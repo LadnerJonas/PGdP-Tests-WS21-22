@@ -21,14 +21,14 @@ class TuplePoolTest {
     Tuple<Object, Object> tuple2Inverted = new Tuple<>(string0, int1);
 
     TuplePool<Object, Object> pool0 = new TuplePool<>();
-
-    assertTrue(pool0.insert(tuple0) == tuple0);
-    assertTrue(pool0.insert(tuple0Duplicate) == tuple0);
-
-    assertTrue(pool0.insert(tuple1) == tuple1);
-
-    assertTrue(pool0.insert(tuple2) == tuple2);
-    assertTrue(pool0.insert(tuple2Inverted) == tuple2Inverted);
+  
+    assertSame(pool0.insert(tuple0), tuple0);
+    assertSame(pool0.insert(tuple0Duplicate), tuple0);
+  
+    assertSame(pool0.insert(tuple1), tuple1);
+  
+    assertSame(pool0.insert(tuple2), tuple2);
+    assertSame(pool0.insert(tuple2Inverted), tuple2Inverted);
   }
 
   @Test
@@ -48,18 +48,18 @@ class TuplePoolTest {
     
     
     assertNull(pool0.getByValue(tuple0.getT(), tuple0.getS()));
-    assertTrue(pool0.insert(tuple0) == tuple0);
-    assertTrue(pool0.insert(tuple1) == tuple1);
-    assertTrue(pool0.insert(tuple2) == tuple2);
-    assertTrue(pool0.insert(tuple3) == tuple3);
-    
-    assertTrue(pool0.getByValue(tuple0.getT(), tuple0.getS()) == tuple0);
-    assertTrue(pool0.getByValue(tuple0Duplicate.getT(), tuple0Duplicate.getS()) == tuple0);
+    assertSame(pool0.insert(tuple0), tuple0);
+    assertSame(pool0.insert(tuple1), tuple1);
+    assertSame(pool0.insert(tuple2), tuple2);
+    assertSame(pool0.insert(tuple3), tuple3);
+  
+    assertSame(pool0.getByValue(tuple0.getT(), tuple0.getS()), tuple0);
+    assertSame(pool0.getByValue(tuple0Duplicate.getT(), tuple0Duplicate.getS()), tuple0);
     //assertFalse(pool0.getByValue(tuple0Duplicate.getT(), tuple0Duplicate.getS()) == tuple0Duplicate);
-    assertTrue(pool0.getByValue(tuple1.getT(), tuple1.getS()) == tuple1);
-    assertTrue(pool0.getByValue(tuple2.getT(), tuple2.getS()) == tuple2);
-    assertTrue(pool0.getByValue(tuple3.getT(), tuple3.getS()) == tuple3);
-    assertTrue(pool0.getByValue(123, "Jonas") == tuple3);
+    assertSame(pool0.getByValue(tuple1.getT(), tuple1.getS()), tuple1);
+    assertSame(pool0.getByValue(tuple2.getT(), tuple2.getS()), tuple2);
+    assertSame(pool0.getByValue(tuple3.getT(), tuple3.getS()), tuple3);
+    assertSame(pool0.getByValue(123, "Jonas"), tuple3);
     
   }
   
@@ -79,15 +79,15 @@ class TuplePoolTest {
     
     
     assertEquals(0, pool0.getNumberOfTuples());
-    assertTrue(pool0.insert(tuple0) == tuple0);
+    assertSame(pool0.insert(tuple0), tuple0);
     assertEquals(1, pool0.getNumberOfTuples());
-    assertTrue(pool0.insert(tuple1) == tuple1);
+    assertSame(pool0.insert(tuple1), tuple1);
     assertEquals(2, pool0.getNumberOfTuples());
-    
-    assertTrue(pool0.insert(tuple0Duplicate) == tuple0);
+  
+    assertSame(pool0.insert(tuple0Duplicate), tuple0);
     assertEquals(2, pool0.getNumberOfTuples());
-    
-    assertTrue(pool0.insert(tuple2) == tuple2);
+  
+    assertSame(pool0.insert(tuple2), tuple2);
     assertEquals(3, pool0.getNumberOfTuples());
   }
 }
