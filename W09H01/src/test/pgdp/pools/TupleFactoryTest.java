@@ -2,7 +2,7 @@ package pgdp.pools;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TupleFactoryTest {
   
@@ -44,12 +44,13 @@ class TupleFactoryTest {
     
     TupleFactory<Integer, String> integerStringTupleFactory0 = new TupleFactory<>();
     
-    assertEquals(tuple0, integerStringTupleFactory0.intern(tuple0));
-    assertEquals(tuple1, integerStringTupleFactory0.intern(tuple1));
+    assertSame(tuple0, integerStringTupleFactory0.intern(tuple0));
+    assertSame(tuple1, integerStringTupleFactory0.intern(tuple1));
     
-    assertEquals(tuple0, integerStringTupleFactory0.intern(tuple0Duplicate));
+    assertSame(tuple0, integerStringTupleFactory0.intern(tuple0Duplicate));
+    assertNotSame(tuple0Duplicate, integerStringTupleFactory0.intern(tuple0Duplicate));
     
-    assertEquals(tuple2, integerStringTupleFactory0.intern(tuple2));
+    assertSame(tuple2, integerStringTupleFactory0.intern(tuple2));
   }
   
   
