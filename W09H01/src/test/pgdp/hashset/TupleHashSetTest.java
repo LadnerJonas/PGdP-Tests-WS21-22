@@ -415,6 +415,7 @@ class TupleHashSetTest {
       tuplesInHashSet.add(integerIntegerTuple);
     }
     assertEquals(353, tuplesInHashSet.size());
+    assertEquals(353, integerIntegerTupleHashSet.insertedTuples());
     Arrays.stream(tuples).forEach(integerIntegerTupleHashSet::insert);
     
     tuplesInHashSet = new ArrayList<>();
