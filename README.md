@@ -1,6 +1,10 @@
 # PGdP-Tests-WS21-22
  PGdP-Tests-WS21/22 is a student-created repository used to share code tests.
- 
+
+## State of the project
+
+Due to lack of time on my part, and the general lack of qualitative contributions, I will put the project on ice for the time being. To take the wind out of the sails of false rumors: This step is not forced by the so-called Übungsleitung.
+
 ### Important Note:
 
 In the near future, most exercises will contain test parts, like in W03H02. Therefore, this repository will only contain tests for the other parts.  
