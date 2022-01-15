@@ -1,0 +1,88 @@
+package instruction;
+
+import java.io.*;
+
+public class InstructionCode {
+
+	private static InputStream is = System.in;
+	private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+
+	public static void main(String[] args) {
+		// Block 1
+		int in, op, res;
+
+		res = readInt();
+		op = readInt();
+
+		while (0 < op) {
+			// Block 2
+			if (op == 1) {
+				in = readInt();
+				op = res;
+				while (0 < in) {
+					res = res * op;
+					in = in - 1;
+
+				}
+
+			}
+			// Block 3
+			if (op == 2) {
+				in = res;
+				res = 0;
+				while (0 < in) {
+					res = res + in;
+					in = in - 1;
+
+				}
+
+			}
+			// Block 4
+			if (op == 3) {
+				in = readInt();
+				if (0 <= in) {
+					while (0 < in) {
+						res = res * 10;
+						in = in - 1;
+
+					}
+
+				}
+				// Block 5
+				else {
+					in = -in;
+					while (0 < in) {
+						res = res / 10;
+						in = in - 1;
+
+					}
+
+				}
+
+			}
+			// Block 6
+			op = readInt();
+
+		}
+
+		System.out.println(res);
+	}
+
+	public static int readInt() {
+		Integer x = null;
+		do {
+			if (System.in != is) {
+				is = System.in;
+				bufferedReader = new BufferedReader(new InputStreamReader(is));
+			}
+			try {
+				System.out.println("Geben Sie eine ganze Zahl ein:");
+				x = Integer.parseInt(bufferedReader.readLine().trim());
+			} catch (IOException e) {
+				throw new UncheckedIOException("Konnte Eingabe nicht lesen.", e);
+			} catch (@SuppressWarnings("unused") NumberFormatException e) {
+			}
+		} while (x == null);
+		return x;
+	}
+}
