@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import pgdp.pingulib.math.matrix.SquareMatrix;
+import pgdp.pingulib.math.matrix.SquareMatrixAdd;
+import pgdp.pingulib.math.matrix.SquareMatrixMul;
 
 import java.lang.reflect.Field;
 import java.math.BigInteger;
@@ -152,11 +155,11 @@ public class SquareMatrixTests {
                 ),
                 Arguments.of(
                         new SquareMatrix( // SquareMatrix mit sehr großen Zahlen
-                            IntStream.range(0, 4).mapToObj(i ->
-                                    IntStream.range(0, 4).mapToObj(j ->
-                                        BigInteger.valueOf(Long.MAX_VALUE).multiply(BigInteger.TEN)
-                                    ).toArray(BigInteger[]::new)
-                            ).toArray(BigInteger[][]::new)
+                                IntStream.range(0, 4).mapToObj(i ->
+                                        IntStream.range(0, 4).mapToObj(j ->
+                                                BigInteger.valueOf(Long.MAX_VALUE).multiply(BigInteger.TEN)
+                                        ).toArray(BigInteger[]::new)
+                                ).toArray(BigInteger[][]::new)
                         ),
                         new SquareMatrix(
                                 IntStream.range(0, 4).mapToObj(i ->
