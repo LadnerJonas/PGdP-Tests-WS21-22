@@ -180,6 +180,7 @@ public class SquareMatrixTests {
     );
   }
   
+  // https://github.com/LadnerJonas/PGdP-Tests-WS21-22/issues/45
   @Test
   void testMultithreadingAddition() {
     resetComputeThreadCounter(SquareMatrixAdd.class);
@@ -193,6 +194,7 @@ public class SquareMatrixTests {
     assertEquals(4, getComputeThreadCounter(SquareMatrixAdd.class));
   }
   
+  // https://github.com/LadnerJonas/PGdP-Tests-WS21-22/issues/45
   @Test
   void testMultithreadingMultiplication() {
     resetComputeThreadCounter(SquareMatrixMul.class);
@@ -216,6 +218,7 @@ public class SquareMatrixTests {
     assertEquals(8, getComputeThreadCounter(SquareMatrixMul.class));
   }
   
+  // https://github.com/LadnerJonas/PGdP-Tests-WS21-22/issues/45
   @Test
   void testMinDim() {
     SquareMatrix matrixA = SquareMatrix.generateRandomMatrix(4);
